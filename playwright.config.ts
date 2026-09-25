@@ -5,10 +5,15 @@ const runId = new Date().toISOString().replace(/[:.]/g, '-');
 export default defineConfig({
   testDir: './tests',
   timeout: 30_000,
-  outputDir: `./test-results/${runId}`,
-  reporter: [['line'], ['html', { outputFolder: './playwright-report' }]],
+  outputDir: `./test-run/test-results/${runId}`,
+  reporter: [
+    ['line'],
+    ['html', { outputFolder: `./test-run/playwright-report/${runId}` }],
+  ],
   use: {
-    baseURL: 'https://example.com',
-    trace: 'retain-on-failure',
+    baseURL: 'https://www.saucedemo.com/',
+    trace: 'on',
+    screenshot: 'on',
+    video: 'on',
   },
 });
