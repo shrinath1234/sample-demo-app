@@ -34,7 +34,10 @@ pipeline {
 
     stage('Run Playwright tests') {
       steps {
-        sh 'npx playwright test'
+        sh '''
+          cd "$WORKSPACE"
+          npm test
+        '''
       }
     }
   }
