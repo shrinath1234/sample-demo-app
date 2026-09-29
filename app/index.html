@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f3ee">
+    <title>Daymark | Task board</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Daymark home">
+        <span class="brand-mark" aria-hidden="true">d.</span>
+        <span>daymark</span>
+      </a>
+      <span class="topbar-label"><span class="status-dot"></span> Personal workspace</span>
+    </header>
+
+    <main class="workspace">
+      <section class="welcome" aria-labelledby="page-title">
+        <p class="eyebrow">YOUR TASK BOARD</p>
+        <h1 id="page-title">Your day,<br><span>in order.</span></h1>
+        <p class="welcome-copy">A little space to keep the important things moving.</p>
+        <div class="daily-progress" aria-live="polite">
+          <span class="progress-number" data-testid="remaining-count">2 to do</span>
+          <span class="progress-label">left on your list</span>
+        </div>
+        <div class="progress-track" aria-hidden="true"><span></span></div>
+      </section>
+
+      <section class="board" aria-labelledby="tasks-heading">
+        <div class="board-heading">
+          <div>
+            <p class="eyebrow">YOUR LIST</p>
+            <h2 id="tasks-heading">The list</h2>
+          </div>
+          <label class="search-wrap">
+            <span class="sr-only">Search tasks</span>
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input type="search" data-testid="task-search" placeholder="Find a task">
+          </label>
+        </div>
+
+        <div class="filters" role="group" aria-label="Filter tasks">
+          <button type="button" class="filter-button is-active" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="filter-button" data-filter="open" aria-pressed="false">To do</button>
+          <button type="button" class="filter-button" data-filter="completed" aria-pressed="false">Done</button>
+        </div>
+
+        <ul class="task-list" data-testid="task-list" aria-live="polite"></ul>
+        <p class="empty-state" data-testid="empty-state" hidden>No tasks match. Try another search or add one to your list.</p>
+      </section>
+
+      <aside class="add-panel" aria-labelledby="add-heading">
+        <div class="add-heading">
+          <span class="add-mark" aria-hidden="true">+</span>
+          <div>
+            <p class="eyebrow">MAKE A NOTE</p>
+            <h2 id="add-heading">Add a task</h2>
+          </div>
+        </div>
+        <form data-testid="task-form">
+          <label class="field-label" for="task-title">Task name</label>
+          <input id="task-title" name="title" data-testid="task-title" placeholder="What needs doing?" required maxlength="80">
+
+          <div class="field-row">
+            <div>
+              <label class="field-label" for="task-category">Category</label>
+              <select id="task-category" name="category" data-testid="task-category">
+                <option>Personal</option>
+                <option>Work</option>
+                <option>Home</option>
+                <option>Errands</option>
+              </select>
+            </div>
+            <div>
+              <label class="field-label" for="task-priority">Priority</label>
+              <select id="task-priority" name="priority" data-testid="task-priority">
+                <option>Normal</option>
+                <option>High</option>
+                <option>Low</option>
+              </select>
+            </div>
+          </div>
+          <button class="add-button" type="submit">Add to list <span aria-hidden="true">↗</span></button>
+        </form>
+      </aside>
+    </main>
+    <footer class="footer"><span>DAYMARK / 01</span><span>Make room for what matters.</span></footer>
+  </body>
+</html>

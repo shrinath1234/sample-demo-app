@@ -1,21 +1,28 @@
 # sample-demo-app
 
-This project is to practice automation testing using Playwright. It follow the Page Object Model design. It also generates reports and traces for every test run.
+A small, local task-board web app for practicing Playwright. The app has starter tasks and supports adding, completing, filtering, searching, and deleting tasks. It runs with Node.js built-ins and has no extra runtime dependencies.
 
 ## Getting started
 
 ### Prerequisites
+
 - Node.js 18+
 - npm
 
 ### Install dependencies
 
 ```bash
-git clone https://github.com/shrinath1234/sample-demo-app.git
-cd sample-demo-app
 npm install
-npx playwright install --with-deps
+npx playwright install
 ```
+
+### Run the app
+
+```bash
+npm start
+```
+
+Open [http://127.0.0.1:4173](http://127.0.0.1:4173). The task board keeps changes in memory, so reloading restores the starter tasks.
 
 ### Run the tests
 
@@ -23,12 +30,8 @@ npx playwright install --with-deps
 npm test
 ```
 
-### Run in headed mode
+Playwright starts the local app automatically for test runs. To watch the browser while tests run:
 
 ```bash
-npx playwright test --headed
+npm run test:headed
 ```
-
-# URL used for practice
-
-This is the url used for now - https://www.saucedemo.com/. It might change in the future.
